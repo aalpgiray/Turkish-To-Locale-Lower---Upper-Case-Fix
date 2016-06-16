@@ -1,5 +1,4 @@
-var toLocaleLowerCase = String.prototype.toLocaleLowerCase;
-String.prototype.toLocaleLowerCase = function (param) {
+function ToTurkishLower(param) {
     if (param && param == "tr-TR") {
         var str = this.replace(/I/g, "ı").replace(/İ/g, "i");
         return toLocaleLowerCase.call(str, param);
@@ -7,8 +6,8 @@ String.prototype.toLocaleLowerCase = function (param) {
         return toLocaleLowerCase.call(this, param);
     }
 }
-var toLocaleUpperCase = String.prototype.toLocaleUpperCase;
-String.prototype.toLocaleUpperCase = function (param) {
+
+function ToTurkishUpper(param) {
     if (param && param == "tr-TR") {
         var str = this.replace(/i/g, "İ").replace(/ı/g, "I");
         return toLocaleUpperCase.call(str, param);
@@ -16,3 +15,12 @@ String.prototype.toLocaleUpperCase = function (param) {
         return toLocaleUpperCase.call(this, param);
     }
 }
+
+if (String.prototype.toLocaleLowerCase.name != ToTurkishLower.name) {
+    var toLocaleLowerCase = String.prototype.toLocaleLowerCase;
+}
+String.prototype.toLocaleLowerCase = ToTurkishLower;
+
+if (String.prototype.toLocaleUpperCase.name != ToTurkishUpper.name)
+    var toLocaleUpperCase = String.prototype.toLocaleUpperCase;
+String.prototype.toLocaleUpperCase = ToTurkishUpper;
