@@ -9,7 +9,7 @@ Place the file before other scripts
 # Usage
 ```js
 var text = "İstanbul";
-text.toLocaleLowerCase("tr-TR");
+text.toLocaleLowerCase("tr-TR"); // istanbul
 ```
 # Turkish toLocaleUpperCase
 
@@ -18,5 +18,5 @@ This fixes the issue with "i" becoming "I" when toLocaleUpperCase called uppun.
 # Usage
 ```js
 var text = "İstanbul";
-text.toLocaleUpperCase("tr-TR");
+text.toLocaleUpperCase("tr-TR"); // İSTANBUL
 ```
